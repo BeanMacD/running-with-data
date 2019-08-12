@@ -1,0 +1,24 @@
+{% extends 'RaceBase.html' %}
+{% block Tables %}
+<table style="page-break-inside:auto">
+  <tr style="page-break-inside:avoid; page-break-after:auto">
+    <th>Race ID</th>
+    <th>Race Name </th>
+  </tr>
+    {% for Race in Races %}
+              <tr style="page-break-inside:avoid; page-break-after:auto">
+                {% for value in Race %}
+                <td>
+                  {% if loop.index0==0 %}
+                <a href="/Race/RaceResults/{{Location}}/{{value}}/Results/10">
+                  {{value}}
+                </a>
+                {% else %}
+                {{value}}
+                {% endif %}
+              </td>
+                {% endfor %}
+              </tr>
+    {% endfor %}
+</table>
+{% endblock %}

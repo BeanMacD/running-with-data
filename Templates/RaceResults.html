@@ -1,0 +1,51 @@
+{% extends 'RaceBase.html' %}
+{% block Tables %}
+<div id="resultsnav">
+  <table>
+    <tr>
+    <td>
+      <a href="/Race/RaceResults/{{RaceID}}/{{Prev}}">Prev</a>
+    </td>
+    {% for link in range(Min-9, Min+1) %}
+    {% if link <= HyperLinks %}
+    <td>
+      <a href="/Race/RaceResults/{{RaceID}}/{{link*10}}">{{link}}</a>
+    </td>
+    {% endif %}
+    {% endfor %}
+    <td id="next">
+      <a href="/Race/RaceResults/{{RaceID}}/{{Next}}">Next</a>
+    </td>
+  </tr>
+  </table>
+</div>
+<table style="page-break-inside:auto">
+  <tr style="page-break-inside:avoid; page-break-after:auto">
+    <th>Runner Name</th>
+    <th>RunnerID </th>
+    <th>RaceID</th>
+    <th>Time</th>
+    <th>OverallPlace</th>
+    <th>GenderPlace</th>
+    <th>CategoryPlace</th>
+  </tr>
+    {% for RaceInfo in RaceInfos %}
+              <tr style="page-break-inside:avoid; page-break-after:auto">
+                {% for Runner in RaceInfo %}
+                <td>
+                  {% if loop.index0==1 %}
+                <a href="/Runner/Dashboard/{{Runner}}">
+                  {{Runner}}
+                </a>
+                {% else %}
+                {{Runner}}
+                {% endif %}
+              </td>
+                {% endfor %}
+              </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock %}

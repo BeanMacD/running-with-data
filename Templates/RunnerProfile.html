@@ -1,0 +1,23 @@
+{% extends 'RunnerBase.html' %}
+{% block content %}
+  <div class="card" style="padding-top: 2.5%">
+  <img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/avatar-boss-ceo-chief-male-man-officer-3a130e64fffeaa3f-512x512.png" alt="Avatar" style="width:80px">
+  <div class="contain">
+    <h5>{{RunnerName}}<h5>
+      <p class="description">{{RunnerID}}</p>
+      <p class="desctiptionagain" style="text-align:center">
+        {% if RunnerGender=='M' %}
+        Male
+        {% else %}
+        Female
+        {% endif %}
+        <br>
+        {{RunnerFrom}}
+        <br>
+        {{RunnerDOB}}
+        <br>
+      </p>
+  </div>
+</div>
+
+  {% endblock %}

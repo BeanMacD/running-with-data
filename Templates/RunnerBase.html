@@ -1,0 +1,141 @@
+<!DOCTYPE>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+      <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      {% block head %}
+      {% endblock %}
+      <style>
+      html, body, h1, h2, h3, h4, h5 {font-family:"Raleway", sans-serif;}
+      .w3-top{left: 15%; width: 85%; padding-bottom: 2.5%}
+      .w3-bar-block{text-align: center;}
+      .topnav{background-color: w3-black; left: 15%;}
+      .sidebar{
+              position: fixed;
+              width: 15%;
+              height: 100%;
+              border-radius: 30px;
+              z-index: 1;
+            }
+      .sidebar:before{
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.8;
+        background-image: url('http://www.publicdomainpictures.net/pictures/170000/velka/runner-competing-in-race.jpg');
+        background-repeat: no-repeat;
+        background-position: 20% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+      .Tables {
+        padding-left: 25%;
+        padding-top: 10%;
+        width: 15%;
+      }
+      .container {
+       padding-left: 10%;
+       padding-top: 5%;
+       position: static;
+     }
+     .container_test{
+       padding-left: 5%;
+     }
+     .container_bargraph{
+       position:static;
+     }
+     .container_bokeh{
+       position:fixed;
+     }
+     .container-fluid{
+       width: 750px;
+     }
+     .card{
+       text-align: center;
+       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+       transition: 0.3s;
+       width: 30%;
+       border-radius: 5px;
+     }
+     .contain{
+       padding: 2px 16px;
+     }
+
+td, th {
+	padding: 10px;
+	border: 1px solid #ccc;
+	text-align: left;
+	font-size: 18px;
+}
+
+
+
+    </style>
+    </head>
+    <body class="w3-light-grey">
+      <div class="w3-bar w3-top w3-grey w3-large" style="z-index:4">
+        <span class="w3-bar-item w3-right">Running With Data</span>
+      </div>
+      <div class="sidebar w3-animate-left" id="MySidebar">
+        <div class="w3-container">
+          <a href="/"> <img border="0" alt="Home" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png" width="50" height="50">
+        </div>
+        <br>
+        <br>
+        <div class="w3-container">
+          Running With Data
+        </div>
+        <hr>
+        <div class="w3-container w3-row">
+          <base href={{RunnerID}}+"/" />
+          <div class="w3-col s4">
+            <img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/avatar-boss-ceo-chief-male-man-officer-3a130e64fffeaa3f-512x512.png" class="w3-circle w3-margin-right" style="width:55px">
+          </div>
+          <div class="w3-col s6 w3-bar">
+            <span><strong>{% block Name %}{% endblock %}</strong></span>
+          </div>
+        </div>
+          <div class="w3-bar-block">
+            <a href="/Runner/Dashboard/{{RunnerID}}" class="w3-bar-item w3-button w3-padding w3-blue">
+              <img src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Pie-Chart-icon.png" class="w3-margin-right" style="width:30px">
+              Dashboard
+            </a>
+            <a href="/Runner/RunnerProfile/{{RunnerID}}" class="w3-bar-item w3-button w3-padding">
+              <img src="https://cdn2.iconfinder.com/data/icons/lightly-icons/30/user-480.png" class="w3-margin-right" style="width:30px">
+              Runner Profile
+            </a>
+            <a href="/Runner/RunnerTables/{{RunnerID}}" class="w3-bar-item w3-button w3-padding">
+              <img src="https://cdn3.iconfinder.com/data/icons/medcare/512/tables-512.png" class="w3-margin-right" style="width:30px">
+              Result Tables
+            </a>
+            <a href="/Runner/Upload/{{RunnerID}}" class="w3-bar-item w3-button w3-padding">
+              <img src="https://cdn0.iconfinder.com/data/icons/pixon-1/24/arrow_up_upload-512.png" class="w3-margin-right" style="width:30px">
+              Upload Results
+            </a>
+            <br>
+            <br>
+          </div>
+      </div>
+      <div class="container" >
+        {% block content %}{% endblock %}
+      </div>
+
+
+
+
+      </body>
+      </html>

@@ -1,0 +1,68 @@
+{% extends 'RunnerBase.html' %}
+{% block content %}
+<div class="container-fluid">
+  <h2>Results for {{RunnerName[0]}}</h2>
+  <div class="panel-group">
+    {% for RaceID in RaceIDS %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#{{RaceID[0]}}">
+            <table>
+              <tr>
+                <th>RaceID</th>
+                <th>Time</th>
+                <th>OverallPlace</th>
+                <th>CategoryPlace</th>
+                <th>GenderPlace</th>
+              </tr>
+              <tr>
+                {% for race in RaceID %}
+                <td>
+                {{race}}
+              </td>
+                {% endfor %}
+              </tr>
+            </table>
+        </a>
+        </h4>
+      </div>
+      <div id="{{RaceID[0]}}" class="panel-collapse collapse">
+        <div class="panel-footer">
+          <table>
+            <tr>
+              <th>RaceID</th>
+              <th>Runner</th>
+              <th>Split Start</th>
+              <th>Split End</th>
+              <th>Split Unit</th>
+              <th>Split Start Time</th>
+              <th>Split End Time</th>
+              <th>Split Duration</th>
+            </tr>
+          </table>
+        </div>
+        {% for split in Splits %}
+        {% if RaceID[0] in split %}
+        <div class="panel-body">
+          <table>
+            <tr>
+              {% for data in split %}
+              <td>
+              {{data}}
+            </td>
+            {% endfor %}
+          </tr>
+        </table>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+  <style>
+  body,h1 {font-family: "Raleway", sans-serif}
+  body, html {height: 100%}
+  body{
+    background-image: url('https://static.pexels.com/photos/421160/pexels-photo-421160.jpeg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+    .w3-sidebar {width: 120px; background: #222}
+    #main {margin-left: 120px}
+  }
+  ul li {
+    float:left;
+  }
+  ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    }
+
+  ul li {
+    padding-left: 10%;
+    padding-top: 10%;
+  }
+
+  .title{
+    width: auto;
+    margin: auto;
+    text-align: center;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  li a {
+    color: white;
+    opacity: 0.8;
+    background: #D3D3D3;
+    height: 300px;
+    width: 500px;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 500%;
+  }
+
+li a:hover{
+  background: #C0C0C0;
+  border: 4px solid white;
+  }
+  </style>
+</head>
+<body>
+  <div class="title">
+    <h1 class="w3-jumbo w3-animate-top">Running With Data</h1>
+  </div>
+  <ul>
+    <li id="right-container">
+  <div class="search">
+<form action="" method=post>
+    <input type=text name=search value="{{ request.form.search}}"></br>
+    <div class="actions"><input type=submit value="Search"></div>
+</form>
+</div>
+{% block content %}
+{% endblock %}
+</li>
+</ul>
+</body>
+</html>
